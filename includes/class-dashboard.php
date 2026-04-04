@@ -19,12 +19,23 @@ class CRM_Dashboard {
 
     public function render_dashboard() {
         $count = wp_count_posts('crm_contacts')->publish;
-        echo '<div class="wrap"><h1 style="margin-bottom:20px;">Seosiri CRM Dashboard</h1>';
-        echo '<div style="background:#fff; padding:30px; border-left:5px solid #0073aa; border-radius:5px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">';
-        echo '<h2 style="color:#23282d;">Total Leads Collected: <span style="color:#0073aa;">' . $count . '</span></h2>';
-        echo '<p style="font-size:16px;">Welcome, Momenul Ahmad. Your secure data engine is active and cloud-synced.</p>';
-        echo '<hr style="border:0; border-top:1px solid #eee; margin:20px 0;">';
-        echo '<p><strong>System Status:</strong> <span style="color:green;">Secure (GitHub Verified)</span></p>';
+        echo '<div class="wrap" style="background:#f0f2f5; padding:20px; border-radius:10px;">';
+        echo '<h1 style="font-weight:700; color:#1d2327;">Seosiri CRM Command Center</h1>';
+        echo '<div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:20px;">';
+        
+        // Card 1: Leads
+        echo '<div style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); border-top:4px solid #0073aa;">';
+        echo '<p style="color:#64748b; font-weight:600; text-transform:uppercase; font-size:12px;">Total Prospects</p>';
+        echo '<h2 style="font-size:36px; margin:10px 0; color:#0f172a;">' . $count . '</h2>';
+        echo '<a href="edit.php?post_type=crm_contacts" style="color:#0073aa; text-decoration:none; font-weight:600;">View all leads →</a>';
+        echo '</div>';
+
+        // Card 2: Security
+        echo '<div style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 10px 15px -3px rgba(0,0,0,0.1); border-top:4px solid #10b981;">';
+        echo '<p style="color:#64748b; font-weight:600; text-transform:uppercase; font-size:12px;">System Integrity</p>';
+        echo '<h2 style="font-size:36px; margin:10px 0; color:#0f172a;">Active</h2>';
+        echo '<p style="color:#10b981; font-weight:600;">✓ GitHub Verified & Secure</p>';
+        echo '</div>';
+
         echo '</div></div>';
     }
-}
