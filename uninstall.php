@@ -1,8 +1,14 @@
 <?php
-// If uninstall not called from WordPress, exit
 if (!defined('WP_UNINSTALL_PLUGIN')) {
     exit;
 }
 
-// Clean up options or metadata here if needed
+// 1. Delete all CRM Contacts when the plugin is deleted
+$contacts = get_posts(array('post_type' => 'crm_contacts', 'numberposts' => -1));
+
+foreach ($contacts as $contact) {
+    wp_delete_post($contact->ID, true);
+}
+
+// 2. Delete version metadata
 delete_option('seosiri_crm_version');

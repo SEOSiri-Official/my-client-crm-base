@@ -7,8 +7,9 @@ class CRM_Dashboard {
     public function add_menu() {
         // This moves the link from "Submenu" to "Top Level Menu"
         add_menu_page(
-            'CRM Summary', 
-            'CRM Summary', 
+            __('CRM Summary', 'seosiri-crm'), 
+    __('CRM Summary', 'seosiri-crm'),
+
             'manage_options', 
             'crm-summary', 
             array($this, 'render_dashboard'), 
